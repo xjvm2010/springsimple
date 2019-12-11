@@ -7,7 +7,7 @@
 <title>login Test 1st</title>
 
 <c:if test="${not empty SID}">
-	<meta http-equiv="Refresh" content="3;url=/" />
+	<meta http-equiv="Refresh" content="3;url=/www/main.van" />
 </c:if>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +33,7 @@
 	<!-- 로그인 폼 페이지 -->
 	<c:if test="${empty SID}">
 <!-- 		<form method="POST" action="/member/loginExec.nop" id="frm"  class="w3-col m6 w3-center w3-margin-top" > -->
-		<form method="POST" action="/member/loginProc.cls" id="frm"  class="w3-col m6 w3-center w3-margin-top" >
+		<form method="POST" action="/www/member/loginProc.van" id="frm"  class="w3-col m6 w3-center w3-margin-top" >
 			<h2 class="w3-col w3-padding w3-card w3-center w3-blue">Login</h2>
 			<div class="w3-col w3-card w3-padding">
 				<div class="w3-col">
