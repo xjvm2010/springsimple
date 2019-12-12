@@ -18,4 +18,18 @@ public class MemberDAO {
 		int cnt= sqlSession.insert("mSQL.Join",vo);
 		return cnt;
 	}
+	
+	public String showName(MemberVO vo) {
+		String str = sqlSession.selectOne("mSQL.showName", vo);
+		return str;
+	}
+	
+	public List<MemberVO> showId(){
+		List<MemberVO> list = sqlSession.selectList("mSQL.showId");
+		
+		return list;
+	}
+	public MemberVO idCheck(String id) {
+		return sqlSession.selectOne("mSQL.idCount", id);
+	}
 }

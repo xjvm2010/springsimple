@@ -151,6 +151,9 @@
 		$('#survey').click(function(){
 			$(location).attr('href', '/survey/survey.cls');
 		});
+		$('#showid').click(function(){
+			$(location).attr('href', '/www/member/showid.van');
+		});
 		
 		
 /* 		
@@ -177,10 +180,14 @@
 				<div class="w3-col m2 w3-aqua w3-button" id="boardList">파일업로드게시판</div>
 				<div class="w3-col m2 w3-blue-grey w3-button" id="reboard">댓글게시판</div>
 				<div class="w3-col m2 w3-khaki w3-button" id="survey">설문조사</div>
+				<div class="w3-col m2 w3-khaki w3-button" id="showid">아이디리스트</div>
 			</c:if>
 		</div>
 	</div>
-	
+	<form action="/www/member/showname.van" method="post">
+		<input type="text" name="mno" placeholder="회원번호를 입력하세요.">
+		<input type="submit">
+	</form>
 	
 	<!-- 회원 상세정보 보기 -->
 	<div class="w3-modal m3" id="detail">

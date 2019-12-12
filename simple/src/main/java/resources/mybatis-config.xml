@@ -3,7 +3,19 @@
 	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 			"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
+	<!-- mybatis 활동 방식 설정 -->
+		<!-- 
+			caceEnabled : 같은 질의명령이라면 캐싱기능 사용여부를 결정하는 속성
+							디폴트는 True
+							
+			 useGeneratedKeys : 생성키에 대한 JDBC 지원을 허용
+			 					 드라이버마다 조금 다르게 작동한다.
+			 					 
+			 defaultExecutorType : 디폴트 실행자 설정
+			 						REUSE : PreparedStatement 를 재사용
+			 						SIMPLE : 특별히 하는 것이 없다.
+			 						BATCH : 구문을 재사용하고 수정을 배치 처리.
+		-->
 	<!-- mybatis 활동 방식 설정 -->
 	<settings>
 		<setting name="cacheEnabled" value="false" />

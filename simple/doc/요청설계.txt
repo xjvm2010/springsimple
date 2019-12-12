@@ -1,0 +1,42 @@
+1. 로그인 폼 요청
+	요청내용	:	
+	파라미터	:	
+	컨트롤러	:	
+	처리함수	:	
+	응답문서	:	
+	
+2. 로그인 처리 요청
+	요청내용	:	
+	파라미터	:	
+	컨트롤러	:	
+	처리함수	:	
+	응답문서	:	
+	
+3. 회원 가입 폼 요청
+	요청내용	:	
+	파라미터	:	
+	컨트롤러	:	
+	처리함수	:	
+	응답문서	:	
+	
+4. 회원 가입 처리 요청
+	요청내용	:	
+	파라미터	:	
+	컨트롤러	:	
+	처리함수	:	
+	응답문서	:	
+
+5. 회원 이름 보기 요청
+	요청내용	:	/member/showname.van
+	파라미터	:	mno(회원번호)
+	컨트롤러	:	com.simple.www.conroller.Member
+	처리함수	:	showName()
+	응답문서	:	com/simple/www/member/showName.jsp
+
+6. 회원 아이디 카운트 조회 요청 (비동기)
+	요청내용	: 	/member/idCheck.van
+	파라미터	: 	id
+	컨트롤러	:	com.simple.www.controller.Member
+	처리함수	:	idCheck
+	응답문서	:	json || text
+	
