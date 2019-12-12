@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+			PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+			"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mSQL">
+		<!-- 로그인 질의문 -->
+		
+	<select id="Login" resultType="int" parameterType="mVO">
+		SELECT
+			count(*) cnt
+		FROM
+			member
+		WHERE
+			m_id = #{id}
+			AND m_pw = #{pw}
+	</select>
+		<!-- 중복확인 질의문 -->
+	<select id="idCount">
+		SELECT
+			count(*) cnt
+		FROM
+			member
+		WHERE
+			m_id = #{id}
+	</select>
+	
+	<insert id="Join" parameterType="mVO">
+		INSERT INTO 
+			member 
+		VALUES( 
+			(SELECT NVL(MAX(m_no)+1,1001) FROM member), 
+			#{id}, #{pw}, #{name}, #{mail}, #{tel}, sysdate, 11, 'M' )
+	</insert>
+</mapper>
