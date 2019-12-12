@@ -165,7 +165,7 @@
 	<div class="container">
 		<div class="joinLogo">J O I N</div>
 		<div class="listbox">
-	<form method="POST" action="/member/joinProc.cls" enctype="multipart/form-data">
+	<form method="POST" action="/www/member/joinProc.van">
 		<ul class="ulcl w3-margin-bottom w3-padding">
 			<li id="idli">
 				<label for="id">I D</label>
@@ -190,6 +190,7 @@
 			<p class="pcl" id="num_check"></p>
 			</li>
 			
+			<!-- 
 			<li class="w3-margin-bottom">
 				<label for="gen">성 별</label>
 				<div class="w3-row w3-margin-bottom">
@@ -247,7 +248,7 @@
 				</div>
 			</li>
 			
-			<!-- 프로필사진 업로드기능 -->
+			프로필사진 업로드기능
 			<li>
 				<div class="w3-col">
 					<label for="prof">프로필사진</label>
@@ -260,8 +261,8 @@
 					</div>
 				</div>
 			</li>
+		 -->
 		</ul>
-		
 		<div class="inputcl w3-margin-bottom">
 			<input class="subcl" type="submit" id="join" value="Sign Up">
 			<button id="returnBtn">Back</button>
