@@ -30,13 +30,19 @@ public class MemberVO {
 	private Time joinTime;
 	private String sDate;
 	private String sTime;
-	private String avt;
+	private String avatar; // 아바타 파일명
+	private int avt; //아바타 코드
 	
-	
-	public String getAvt() {
+	public String getAvatar() {
+		return avatar;
+	}
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+	public int getAvt() {
 		return avt;
 	}
-	public void setAvt(String avt) {
+	public void setAvt(int avt) {
 		this.avt = avt;
 	}
 	public int getCnt() {

@@ -31,29 +31,29 @@
 			// 해당 태그에 적용시켜주면 된다.
 			
 			$.ajax({
-				url : "/member/membInfo.ck",
+				url : "/www/member/membInfo.van",
 				type : "post",
 				dataType : "json",
 				data : {
-					mid : tid
+					id : tid
 				},
 				success : function(data){
 					alert("success");
 					$('#mno').html(data.mno);
-					$('#mid').html(data.mid);
-					$('#mname').html(data.mname);
-					$('#mmail').html(data.mmail);
-					$('#mtel').html(data.mtel);
-					$('#mdate').html(data.mdate);
+					$('#mid').html(data.id);
+					$('#mname').html(data.name);
+					$('#mmail').html(data.mail);
+					$('#mtel').html(data.tel);
+					$('#mdate').html(data.sDate);
 					$('#detail').css('display', 'block');
 					
 					$('#infoEdit').click(function(){
 						$('#no').html(data.mno);
-						$('#id').html(data.mid);
-						$('#name').html(data.mname);
-						$('#mail').val(data.mmail);
-						$('#tel').val(data.mtel);
-						$('#date').html(data.mdate);
+						$('#id').html(data.id);
+						$('#name').html(data.name);
+						$('#mail').val(data.mail);
+						$('#tel').val(data.tel);
+						$('#date').html(data.sDate);
 						$('#detail').css('display', 'none');
 						$('#edit').css('display', 'block');			
 					});
@@ -76,26 +76,16 @@
 			
 			if(mail1 == mail2 && tel1 == tel2){
 				return;
-			} else if(mail1 == mail2){
-				// 전화번호만 수정한 경우
-				code = 3;
-			} else if(tel1 == tel2){
-				// 메일만 수정한 경우
-				code = 2;
-			} else {
-				// 전화번호와 메일 둘다 수정한 경우
-				code = 1;
 			}
 			
 			$.ajax({
-				url : "/member/infoEdit.ck",
+				url : "/www/member/infoEdit.van",
 				type: "post",
 				dataType: "json",
 				data : {
 					"mno" : no,
 					"mail" : mail2,
-					"tel" : tel2,
-					"code" : code
+					"tel" : tel2
 				},
 				success : function(data){
 					if(data.cnt == 1){
@@ -151,16 +141,11 @@
 		$('#survey').click(function(){
 			$(location).attr('href', '/survey/survey.cls');
 		});
-		$('#showid').click(function(){
-			$(location).attr('href', '/www/member/showid.van');
-		});
 		
-		
-/* 		
-		$('#memberEdit').click(function(){
-			$('#edit').css('display', 'block');
+		$('#boardlist').click(function(){
+			$(location).attr('href', '/www/board/boardlist.van');
 		});
-*/
+				
 	});
 </script>
 </head>
@@ -172,6 +157,7 @@
 			<c:if test="${empty SID}">
 				<div class="w3-col m2 w3-red w3-button" id="login">로그인</div>
 				<div class="w3-col m2 w3-purple w3-button" id="join">회원가입</div>
+				<div class="w3-col m2 w3-bule w3-button" id="idList">회원리스트</div>
 			</c:if>
 			<c:if test="${not empty SID}">
 				<div class="w3-col m2 w3-pink w3-button" id="logout">로그아웃</div>
@@ -180,14 +166,11 @@
 				<div class="w3-col m2 w3-aqua w3-button" id="boardList">파일업로드게시판</div>
 				<div class="w3-col m2 w3-blue-grey w3-button" id="reboard">댓글게시판</div>
 				<div class="w3-col m2 w3-khaki w3-button" id="survey">설문조사</div>
-				<div class="w3-col m2 w3-khaki w3-button" id="showid">아이디리스트</div>
+				<div class="w3-col m2 w3-Light Green w3-button" id="boardlist">박명록</div>
 			</c:if>
 		</div>
 	</div>
-	<form action="/www/member/showname.van" method="post">
-		<input type="text" name="mno" placeholder="회원번호를 입력하세요.">
-		<input type="submit">
-	</form>
+	
 	
 	<!-- 회원 상세정보 보기 -->
 	<div class="w3-modal m3" id="detail">

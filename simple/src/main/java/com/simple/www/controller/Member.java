@@ -86,7 +86,7 @@ public class Member {
 	}
 	@RequestMapping("showid.van")
 	public ModelAndView showId(ModelAndView mv) {
-		List<MemberVO> list = mDAO.showId();
+		 List<MemberVO> list = mDAO.showId();
 		
 		mv.addObject("LIST",list);
 		mv.setViewName("member/showId");
@@ -119,6 +119,21 @@ public class Member {
 				입력된 데이터를 벨류로 해서 
 				json 문서를 알아서 만들어 준다.
 		 */
+		return vo;
+	}
+	@RequestMapping("membInfo.van")
+	@ResponseBody // ajax처리 
+	public MemberVO membInfo(String id) { //회원정보를 보여줄 함수 
+		MemberVO vo = mDAO.membInfo(id);
+		return vo;
+	}
+	
+	@RequestMapping("infoEdit.van") 
+	public @ResponseBody MemberVO editInfo(MemberVO vo) { //회원정보를 수정하는 함수
+			//ajax처리와 같으나 방식만 좀 다르게 함.
+		System.out.println(vo.getMno());
+		vo.setCnt(mDAO.editInfo(vo));
+		
 		return vo;
 	}
 	

@@ -150,4 +150,77 @@
 			member
 	</select>
 	
+	
+	<insert id="addMember" parameterType="mVO"> <!-- 회원가입 -->
+		<selectKey keyProperty="mno" resultType="int" order="BEFORE">
+			SELECT
+				NVL(MAX(m_no) + 1, 1001)
+			FROM
+				member
+		</selectKey>
+		
+		INSERT INTO
+			member
+		VALUES(
+<!-- 			(SELECT NVL(MAX(m_no) + 1), 1001) FROM member), -->
+			#{mno}, #{id}, #{pw}, #{name}, 
+			#{mail}, #{tel}, sysdate, #{avt}, #{gen}
+		)
+	</insert>
+	
+	<update id="editInfo" parameterType="mVO"> <!-- 회원정보수정 -->
+		UPDATE
+			member
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="pw != null">m_pw = #{pw},</if>
+			<if test="mail != null">m_mail = #{mail},</if>
+			<if test="tel != null">m_tel = #{tel},</if>
+			<if test="avt != 0">m_avt = #{avt},</if>
+		</trim>
+		WHERE
+			m_no = #{mno}
+	</update>
+	
+	
+	<select id="membInfo" resultType="mVO" parameterType="string">
+		SELECT
+			m_no mno, m_id id, m_name name, m_mail mail,
+			m_tel tel, to_char(m_join, 'yyyy-mm-dd HH24:MI:ss') sDate, 
+			m_avt avt, a_img avatar
+		FROM
+			member, avatar
+		WHERE
+			m_avt = a_no
+			AND m_id = #{id}
+	</select>
+	
+	<select id="boardlist" resultType="bVO">
+		SELECT
+			bno, title, bbody, bdate, (SELECT m_id FROM member WHERE m_no = mno) id
+		FROM
+			board
+		WHERE
+			isshow='Y'
+		ORDER BY bno desc
+	</select>
+	
+	
+	
+	<insert id="boardwrite" parameterType="bVO">
+	<selectKey keyProperty="mno" resultType="int" order="BEFORE">
+		SELECT
+			m_no
+		FROM
+			member
+		WHERE
+			m_id = #{id}
+	</selectKey>
+		INSERT INTO
+			board(bno, mno, title, bbody)
+		VALUES
+			((SELECT NVL(MAX(bno) + 1, 1001) FROM board), #{mno},  #{title}, #{bbody})
+	</insert>
+	
+	
+	
 </mapper>

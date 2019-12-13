@@ -26,6 +26,7 @@
 	<!-- mybatis 에서 사용할 타입 정의 -->
 	<typeAliases>
 		<typeAlias alias="mVO" type="com.simple.www.vo.MemberVO"/>
+		<typeAlias alias="bVO" type="com.simple.www.vo.BoardVO"/>
 	</typeAliases>
 	
 	<!-- mybatis에서 사용할 질의명령문서 추가 -->
@@ -34,3 +35,4 @@
 	</mappers>
 	
 </configuration>
+
