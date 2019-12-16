@@ -33,7 +33,7 @@
 	<!-- 로그인 폼 페이지 -->
 	<c:if test="${empty SID}">
 <!-- 		<form method="POST" action="/member/loginExec.nop" id="frm"  class="w3-col m6 w3-center w3-margin-top" > -->
-		<form method="POST" action="/member/loginProc.cls" id="frm"  class="w3-col m6 w3-center w3-margin-top" >
+		<form method="POST" action="/member/loginProc.cls" id="frm"  class="w3-col m6 w3-center w3-margin-top"  enctype="muiltport/form-data">
 			<h2 class="w3-col w3-padding w3-card w3-center w3-blue">Login</h2>
 			<div class="w3-col w3-card w3-padding">
 				<div class="w3-col">

@@ -46,6 +46,7 @@
 		<property name="password" value="koitt" />
 		<property name="maxActive" value="8" />
 	</bean>
+	
 	<!-- myBatis 환경 설정 -->
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

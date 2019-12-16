@@ -24,8 +24,7 @@ public class MemberDAO {
 		String str = sqlSession.selectOne("mSQL.showName", vo);
 		return str;
 	}
-	
-	
+		
 	public List<MemberVO> showId(){
 		List<MemberVO> list = sqlSession.selectList("mSQL.showId");
 		return list;

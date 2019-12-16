@@ -10,10 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.simple.www.dao.*;
+import com.simple.www.services.FileService;
 import com.simple.www.vo.*;
 
 @Controller
@@ -21,12 +23,12 @@ import com.simple.www.vo.*;
 public class Member {
 	@Autowired
 	MemberDAO mDAO;
+	@Autowired
+	FileService fileSrvc;
+	
 	
 	@RequestMapping("login.van")
-	public ModelAndView loginForm(ModelAndView mv) {
-		mv.setViewName("member/login");
-		return mv;
-	}
+	public void loginForm() {}
 	
 	@RequestMapping("loginProc.van")
 	public ModelAndView loginProc(HttpSession session, RedirectView rv,
@@ -54,10 +56,7 @@ public class Member {
 	}
 	
 	@RequestMapping("join.van")
-	public ModelAndView joinForm(ModelAndView mv) {
-		mv.setViewName("member/join");
-		return mv;
-	}
+	public void joinForm() {}
 	
 	@RequestMapping("joinProc.van")
 	public ModelAndView joinProc(ModelAndView mv, MemberVO vo, HttpSession session, RedirectView rv) {
@@ -133,8 +132,12 @@ public class Member {
 			//ajax처리와 같으나 방식만 좀 다르게 함.
 		System.out.println(vo.getMno());
 		vo.setCnt(mDAO.editInfo(vo));
-		
 		return vo;
+	}
+	
+	@RequestMapping("fileUp.van")
+	public void fileUp(MultipartFile upfile, HttpSession session) {
+		fileSrvc.singleUpProc(upfile, session);
 	}
 	
 }
