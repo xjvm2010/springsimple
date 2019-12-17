@@ -27,6 +27,8 @@
 	<typeAliases>
 		<typeAlias alias="mVO" type="com.simple.www.vo.MemberVO"/>
 		<typeAlias alias="bVO" type="com.simple.www.vo.BoardVO"/>
+		<typeAlias alias="fVO" type="com.simple.www.vo.FileVO"/>
+		<typeAlias alias="gVO" type="com.simple.www.vo.GalleryVO"/>
 	</typeAliases>
 	
 	<!-- mybatis에서 사용할 질의명령문서 추가 -->

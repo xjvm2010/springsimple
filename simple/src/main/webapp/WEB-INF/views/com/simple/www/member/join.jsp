@@ -165,7 +165,8 @@
 	<div class="container">
 		<div class="joinLogo">J O I N</div>
 		<div class="listbox">
-	<form method="POST" action="/www/member/joinProc.van">
+	<form method="POST" action="joinProc.van"  enctype="multipart/form-data">
+<!-- 	<form method="POST" action="/www/member/joinProc.van"  enctype="multipart/form-data"> -->
 		<ul class="ulcl w3-margin-bottom w3-padding">
 			<li id="idli">
 				<label for="id">I D</label>
@@ -190,7 +191,7 @@
 			<p class="pcl" id="num_check"></p>
 			</li>
 			
-			<!-- 
+			
 			<li class="w3-margin-bottom">
 				<label for="gen">성 별</label>
 				<div class="w3-row w3-margin-bottom">
@@ -204,25 +205,26 @@
 				</div>
 					<hr class="w3-light-grey">
 			</li>
+			
 			<li id="avtChoice">
 				<label for="avt">아바타</label>
 				<div class="w3-col avtM">
 					<div class="w3-col m4">
 						<input type="radio" name="avt" value="11">
 						<div>
-							<img src="/img/avatar/img_avatar1.png" class="avt1">
+							<img src="/www/img/avatar/img_avatar1.png" class="avt1">
 						</div>
 					</div>
 					<div class="w3-col m4">
 						<input type="radio" name="avt" value="12">
 						<div>
-							<img src="/img/avatar/img_avatar2.png" class="avt1">
+							<img src="/www/img/avatar/img_avatar2.png" class="avt1">
 						</div>
 					</div>
 					<div class="w3-col m4">
 						<input type="radio" name="avt" value="13">
 						<div>
-							<img src="/img/avatar/img_avatar3.png" class="avt1">
+							<img src="/www/img/avatar/img_avatar3.png" class="avt1">
 						</div>
 					</div>
 				</div>
@@ -230,38 +232,38 @@
 					<div class="w3-col m4">
 						<input type="radio" name="avt" value="14">
 						<div>
-							<img src="/img/avatar/img_avatar4.png" class="avt1">
+							<img src="/www/img/avatar/img_avatar4.png" class="avt1">
 						</div>
 					</div>
 					<div class="w3-col m4">
 						<input type="radio" name="avt" value="15">
 						<div>
-							<img src="/img/avatar/img_avatar5.png" class="avt1">
+							<img src="/www/img/avatar/img_avatar5.png" class="avt1">
 						</div>
 					</div>
 					<div class="w3-col m4">
 						<input type="radio" name="avt" value="16">
 						<div>
-							<img src="/img/avatar/img_avatar6.png" class="avt1">
+							<img src="/www/img/avatar/img_avatar6.png" class="avt1">
 						</div>
 					</div>
 				</div>
 			</li>
 			
-			프로필사진 업로드기능
+			<!-- 프로필사진 업로드기능 -->
 			<li>
 				<div class="w3-col">
 					<label for="prof">프로필사진</label>
 					<div class="w3-col w3-padding prof">
-						<input type="file" name="prof" id="prof" 
+						<input type="file" name="sFile" id="prof" 
 								class="w3-file profIn" style="height: 50px;">
 					</div>
 					<div id="" class="w3-padding w3-center">
-						<img src="/img/profile/noimage.jpg" alt="noimage" class="pic1" id="profImg">
+						<img src="/www/img/profile/noimage.jpg" alt="noimage" class="pic1" id="profImg">
 					</div>
 				</div>
 			</li>
-		 -->
+		 
 		</ul>
 		<div class="inputcl w3-margin-bottom">
 			<input class="subcl" type="submit" id="join" value="Sign Up">

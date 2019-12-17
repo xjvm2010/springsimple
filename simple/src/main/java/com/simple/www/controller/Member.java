@@ -25,9 +25,11 @@ public class Member {
 	MemberDAO mDAO;
 	@Autowired
 	FileService fileSrvc;
+	@Autowired
+	FileDAO fDAO;
 	
 	
-	@RequestMapping("login.van")
+	@RequestMapping("login.van") //뷰를 반환하지 않아도 자동처리함.
 	public void loginForm() {}
 	
 	@RequestMapping("loginProc.van")
@@ -64,12 +66,14 @@ public class Member {
 		
 		if(cnt == 1 ) {
 			session.setAttribute("SID", vo.getId());
+			fileSrvc.setDAO(fDAO);
+			fileSrvc.singleUpProc(session, vo);
+			
 			rv.setUrl("/www/main.van");
-			mv.setView(rv);
 		}else {
 			rv.setUrl("/www/member/join.van");
-			mv.setView(rv);
 		}
+		mv.setView(rv);
 		return mv;
 	}
 	
@@ -82,7 +86,9 @@ public class Member {
 		req.setAttribute("NAME", name);
 		mv.setViewName("member/showName");
 		return mv;
+		
 	}
+	
 	@RequestMapping("showid.van")
 	public ModelAndView showId(ModelAndView mv) {
 		 List<MemberVO> list = mDAO.showId();
@@ -136,8 +142,11 @@ public class Member {
 	}
 	
 	@RequestMapping("fileUp.van")
-	public void fileUp(MultipartFile upfile, HttpSession session) {
-		fileSrvc.singleUpProc(upfile, session);
+	public void fileUp(HttpSession session, MemberVO mVO) {
+			try {
+				fileSrvc.singleUpProc(session, mVO);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 	}
-	
 }

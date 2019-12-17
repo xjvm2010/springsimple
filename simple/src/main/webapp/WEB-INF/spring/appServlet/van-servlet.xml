@@ -28,6 +28,7 @@
 	
 	<!-- 파일 다운로드를 위한 뷰 서블릿 설정 -->
 	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+	
 		<!-- 
 				뷰의 실행 우선 순위를 지정하는 부분이다.
 				스프링은 컨트롤러가 반환값을 주지 않아도

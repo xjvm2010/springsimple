@@ -25,28 +25,36 @@ nav {
 <body>
 	<div class="container" style="width: auto; margin-top: 100px;">
 		<div class="row">
-			<form method="post" action="/www/board/boardwrite.van" class="col-12">
+			<form method="post" action="/www/board/gallery.van" class="col-12" enctype="multipart/form-data">
 				<input type="hidden" name="id" value="${SID }"/>
 				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 					<thead>
 						<tr>
-							<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글쓰기</th>
+							<th colspan="2" style="background-color: #eeeeee; text-align: center;">사진 게시판 글쓰기</th>
 						</tr>
 					</thead>
+					
 					<tbody>
 						<tr>
 							<td>
 							<input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="50" />
 							</td>
 						</tr>
+						
 						<tr>
 							<td>
-							<textarea class="form-control" placeholder="글 내용" name="bbody" maxlength="2048" style="height: 350px;"></textarea>
+							<textarea class="form-control" placeholder="글 내용" name="body" maxlength="2048" style="height: 350px;"></textarea>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<input type="file" class="form-control"  name="sFile" />
 							</td>
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" class="btn btn-primary pull-right" value="글쓰기" />
+				<input type="submit" class="btn btn-primary pull-right"  value="글쓰기" />
 			</form>
 		</div>
 	</div>

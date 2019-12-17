@@ -13,9 +13,8 @@ public class MemberDAO {
 		return cnt;
 	}
 	
-	
 	public int joinProc(MemberVO vo) {
-		int cnt= sqlSession.insert("mSQL.Join",vo);
+		int cnt= sqlSession.insert("mSQL.addMember",vo);
 		return cnt;
 	}
 	
@@ -55,4 +54,5 @@ public class MemberDAO {
 		int cnt = sqlSession.insert("mSQL.boardwrite",vo);
 		return cnt;
 	}
+	
 }

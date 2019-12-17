@@ -126,14 +126,6 @@
 			m_id = #{id}
 	</select>
 	
-	<insert id="Join" parameterType="mVO">
-		INSERT INTO 
-			member 
-		VALUES( 
-			(SELECT NVL(MAX(m_no)+1,1001) FROM member), 
-			#{id}, #{pw}, #{name}, #{mail}, #{tel}, sysdate, 11, 'M' )
-	</insert>
-	
 	<select id="showName" parameterType="mVO" resultType="String">
 		SELECT
 			m_name
@@ -151,20 +143,35 @@
 	</select>
 	
 	
-	<insert id="addMember" parameterType="mVO"> <!-- 회원가입 -->
+	<insert id="addMember" parameterType="mVO">
 		<selectKey keyProperty="mno" resultType="int" order="BEFORE">
 			SELECT
 				NVL(MAX(m_no) + 1, 1001)
 			FROM
 				member
 		</selectKey>
-		
 		INSERT INTO
 			member
 		VALUES(
-<!-- 			(SELECT NVL(MAX(m_no) + 1), 1001) FROM member), -->
 			#{mno}, #{id}, #{pw}, #{name}, 
 			#{mail}, #{tel}, sysdate, #{avt}, #{gen}
+		)
+	</insert>
+	
+	<insert id="addPic" parameterType="fVO">
+		<selectKey keyProperty="pno" resultType="int" order="BEFORE">
+			SELECT
+				NVL(MAX(p_no) + 1, 1000001)
+			FROM
+				m_photo
+		</selectKey>
+		INSERT INTO
+			m_photo(
+				p_no, p_mno, p_oriname, p_savename, 
+				p_len, p_dir
+			)
+		VALUES(
+			#{pno}, #{mno}, #{oriName}, #{saveName}, #{len}, #{dir}
 		)
 	</insert>
 	
@@ -218,9 +225,26 @@
 		INSERT INTO
 			board(bno, mno, title, bbody)
 		VALUES
-			((SELECT NVL(MAX(bno) + 1, 1001) FROM board), #{mno},  #{title}, #{bbody})
+			( (SELECT NVL(MAX(bno) + 1, 1001) FROM board) , #{mno},  #{title}, #{bbody})
 	</insert>
 	
-	
+	<insert id="addgallery" parameterType="gVO">
+		<selectKey keyProperty="gmno" resultType="int" order="BEFORE">
+
+			SELECT
+				m_no
+			FROM
+				member
+			WHERE
+				m_id = #{id}
+		</selectKey>
+		INSERT INTO
+			gallery(gno, gmno, goriName, gsaveName, gtitle, gbody, glen, gdir)
+		VALUES
+		(
+			(SELECT NVL(MAX(gno) + 1, 1000001) FROM gallery ),
+			#{gmno}, #{oriName}, #{saveName}, #{title}, #{body}, #{len}, #{dir}
+		)
+	</insert>
 	
 </mapper>

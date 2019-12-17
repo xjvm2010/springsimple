@@ -1,6 +1,9 @@
 package com.simple.www.vo;
 
 import java.text.*;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.sql.*;
@@ -8,14 +11,14 @@ import java.sql.*;
  * 이 클래스는 회원정보에 대한 데이터를 저장해서
  *  넘겨주는 용도로 사용할 클래스( DTO 또는 VO )
  *  
- * @author	전은석
+ * @author	박송림
  * @since	2019.11.12
  * @version	v.1.0
  * 
  * 			변경이력
- * 				2019.11.12	-	클래스 제작 	- 	담당자 : 전은석
+ * 				2019.11.12	-	클래스 제작 	- 	담당자 : 박송림
  * 				2019.12.10	- 	jsp프로젝트에서 spring 프로젝트로 클래스 복사
- * 											- 	담당자 : 전은석
+ * 											- 	담당자 : 박송림
  * 
  */
 public class MemberVO {
@@ -30,9 +33,32 @@ public class MemberVO {
 	private Time joinTime;
 	private String sDate;
 	private String sTime;
+	private String gen;
 	private String avatar; // 아바타 파일명
 	private int avt; //아바타 코드
 	
+	private MultipartFile sFile;
+	private MultipartFile[] file;
+	
+	
+	public String getGen() {
+		return gen;
+	}
+	public void setGen(String gen) {
+		this.gen = gen;
+	}
+	public MultipartFile getsFile() {
+		return sFile;
+	}
+	public void setsFile(MultipartFile sFile) {
+		this.sFile = sFile;
+	}
+	public MultipartFile[] getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile[] file) {
+		this.file = file;
+	}
 	public String getAvatar() {
 		return avatar;
 	}

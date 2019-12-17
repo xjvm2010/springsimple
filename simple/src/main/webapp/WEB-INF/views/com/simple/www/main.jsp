@@ -145,7 +145,9 @@
 		$('#boardlist').click(function(){
 			$(location).attr('href', '/www/board/boardlist.van');
 		});
-				
+		$('#gallery').click(function(){
+			$(location).attr('href', '/www/board/uploading.van');
+		});
 	});
 </script>
 </head>
@@ -167,6 +169,7 @@
 				<div class="w3-col m2 w3-blue-grey w3-button" id="reboard">댓글게시판</div>
 				<div class="w3-col m2 w3-khaki w3-button" id="survey">설문조사</div>
 				<div class="w3-col m2 w3-Light Green w3-button" id="boardlist">박명록</div>
+				<div class="w3-col m2 w3-khaki w3-button" id="gallery">갤러리 작성</div>
 			</c:if>
 		</div>
 	</div>
