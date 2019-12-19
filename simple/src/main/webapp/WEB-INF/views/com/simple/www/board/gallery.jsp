@@ -18,10 +18,11 @@
 
 	<div class="w3-row-padding w3-margin-top">
 		<!-- 앨범이미지 목록 반복 부분. -->
+		
 		<c:forEach var="data" items="${LIST }">
 			<div class="w3-third">
 				<div class="w3-card">
-					<img src="img_5terre.jpg" style="width: 100%">
+					<img src="/www/img/avatar/img_avatar4.png" style="width: 100%">
 					<div class="w3-container">
 						<h4>5 Terre</h4>
 					</div>

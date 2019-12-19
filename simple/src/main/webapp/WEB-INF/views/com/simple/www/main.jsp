@@ -136,7 +136,7 @@
 		
 		$('#reboard').click(function(){
 			$(location).attr('href', '/board/reboard.cls');
-		});
+		});	
 		
 		$('#survey').click(function(){
 			$(location).attr('href', '/survey/survey.cls');
@@ -146,7 +146,7 @@
 			$(location).attr('href', '/www/board/boardlist.van');
 		});
 		$('#gallery').click(function(){
-			$(location).attr('href', '/www/board/uploading.van');
+			$(location).attr('href', '/www/board/gallerylist.van');
 		});
 	});
 </script>
@@ -169,7 +169,7 @@
 				<div class="w3-col m2 w3-blue-grey w3-button" id="reboard">댓글게시판</div>
 				<div class="w3-col m2 w3-khaki w3-button" id="survey">설문조사</div>
 				<div class="w3-col m2 w3-Light Green w3-button" id="boardlist">박명록</div>
-				<div class="w3-col m2 w3-khaki w3-button" id="gallery">갤러리 작성</div>
+				<div class="w3-col m2 w3-khaki w3-button" id="gallery">갤러리 보기 </div>
 			</c:if>
 		</div>
 	</div>

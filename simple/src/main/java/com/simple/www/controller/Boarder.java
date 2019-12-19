@@ -64,5 +64,13 @@ public class Boarder {
 		
 		return mv;
 	}
+	
+	@RequestMapping("gallerylist.van")
+	public ModelAndView gallerylist(ModelAndView mv) {
+		List<GalleryVO> list = fDAO.gallerylist();
+		mv.setViewName("board/gallery");
+		mv.addObject("LIST",list);
+		return mv;
+	}
 }
 

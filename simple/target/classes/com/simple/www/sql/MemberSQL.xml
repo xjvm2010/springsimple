@@ -211,6 +211,15 @@
 		ORDER BY bno desc
 	</select>
 	
+	<select id="gallerylist" resultType="fVO">
+	
+		SELECT
+    		gno, gtitle title, gdir dir, gsavename saveName, (SELECT m_id FROM member WHERE m_no = gmno) id
+		FROM
+    		gallery
+    	order by gno desc
+    	
+	</select>
 	
 	
 	<insert id="boardwrite" parameterType="bVO">
