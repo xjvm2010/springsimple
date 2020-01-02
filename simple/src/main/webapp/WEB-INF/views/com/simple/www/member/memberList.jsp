@@ -30,11 +30,15 @@
 			
 			$.ajax({
 				url : "/member/membDetail.nop",
+				
 				type : "post",
+				
 				dataType : "json",
+				
 				data : {
 					mno : tno
 				},
+				
 				success : function(data){
 					alert("success");
 					$('#mno').html(data.mno);

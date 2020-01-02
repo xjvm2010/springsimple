@@ -25,6 +25,11 @@
 		$('#wbtn').click(function(){
 			location.href = '/www/board/writeform.van';
 		});
+		$('.cul').click(function(){
+			var no = $(this).attr('data-id');
+			$(location).attr('href', '/member/content.psl?no='+no);
+		});
+		
 	});
 </script>
 </head>
@@ -54,7 +59,7 @@
 				</div>
 				
 		<c:forEach var="data" items="${LIST}">
-				<div class="w3-row w3-border-left w3-border-right w3-border-bottom" id="${data.bno}">
+				<div class="w3-row w3-border-left w3-border-right w3-border-bottom cul" id="${data.bno}">
 					<div class="w3-col m2 w3-border-right">${data.bno}</div>
 					<div class="w3-col m2 w3-border-right">${data.id}</div>
 					<div class="w3-col m2 w3-border-right">${data.bdate}</div>

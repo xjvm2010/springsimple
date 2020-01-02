@@ -34,7 +34,9 @@ public class Boarder {
 	
 	@RequestMapping("writeform.van")
 	public ModelAndView writeform(ModelAndView mv) {
+		
 		mv.setViewName("board/write");
+		
 		return mv;
 	}
 	
@@ -58,7 +60,7 @@ public class Boarder {
 		
 		mv.addObject("CNT", cnt);
 		
-		rv.setUrl("/www/main.van");
+		rv.setUrl("/www/board/gallerylist.van");
 		
 		mv.setView(rv);
 		
@@ -70,6 +72,14 @@ public class Boarder {
 		List<GalleryVO> list = fDAO.gallerylist();
 		mv.setViewName("board/gallery");
 		mv.addObject("LIST",list);
+		return mv;
+	}
+	
+	@RequestMapping("gallerycontent.van")
+	public ModelAndView gallerycontent(ModelAndView mv, HttpServletRequest req) {
+		int gno = Integer.parseInt(req.getParameter("gno"));
+		fDAO.gallerycontent(gno);
+		mv.setViewName("board/gallerycontent");
 		return mv;
 	}
 }

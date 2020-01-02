@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.jdbc.Sql;
 
 import com.simple.www.vo.BoardVO;
 import com.simple.www.vo.FileVO;
@@ -25,5 +26,10 @@ public class FileDAO {
 	public List<GalleryVO> gallerylist(){
 		List<GalleryVO> list = sqlSession.selectList("mSQL.gallerylist");
 		return list;
+	}
+	
+	public GalleryVO gallerycontent(int gno) {
+		GalleryVO gvo = sqlSession.selectOne("mSQL.gallerycontent", gno);
+		return gvo;
 	}
 }

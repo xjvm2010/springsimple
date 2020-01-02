@@ -61,7 +61,7 @@ public class FileVO {
 	}
 	public void setDir(String dir) {
 //		this.dir = dir;
-		this.dir = "/reources/upload";
+		this.dir = "/resources/upload";
 	}
 	
 	

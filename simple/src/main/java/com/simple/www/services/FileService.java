@@ -149,12 +149,8 @@ public class FileService {
 		gVO.setSaveName(saveName);
 		gVO.setLen(len);
 		gVO.setDir(gVO.getDir());;
-		
-		System.out.println(gVO);
 		cnt = fDAO.insertgalley(gVO);
-
 		return cnt;
-		
 	}
 
 	// 다중 파일 업로드 처리 함수
